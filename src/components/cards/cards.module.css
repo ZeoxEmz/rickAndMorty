@@ -1,0 +1,10 @@
+.contenedorDiv{
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    margin: auto;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 3em;
+    border-radius: 15px;
+}
