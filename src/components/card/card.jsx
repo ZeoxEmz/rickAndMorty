@@ -40,9 +40,9 @@ const Card =({id,name,species,gender,image,onClose})=>{
      return (
       <div className={styles.contenedor}>
          <div className={styles.divBoton}>
-         {isFav ? (<button className={styles.boton} onClick={handleFavorite}>❤️</button>) 
-         : (<button className={styles.boton} onClick={handleFavorite}>🤍</button>)}
-         <button className={styles.botonX} onClick={()=>onClose(id)}>X</button>
+            {isFav ? (<button className={styles.boton} onClick={handleFavorite}>❤️</button>) 
+            : (<button className={styles.boton} onClick={handleFavorite}>🤍</button>)}
+            <button className={styles.botonX} onClick={()=>onClose(id)}>X</button>
          </div>
          <img className={styles.img} src={image} alt="" />
          <Link to={`/detail/${id}`}><h2 className={styles.titulo}>name: {name}</h2></Link>

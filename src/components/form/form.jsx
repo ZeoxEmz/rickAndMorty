@@ -30,11 +30,11 @@ export default function Form({login}){
                 <div className={styles.div}>
                     <label htmlFor="">User Name</label>
                     <input type="text" name='username' value={userData.username} onChange={handleInputChange}/>
+                    <p>{errors.username}</p>
                 </div>
                 <div className={styles.div}>
                     <label htmlFor="password">Password</label>
                     <input type="password" name='password' value={userData.password} onChange={handleInputChange}/>
-                    <p>{errors.username}</p>
                     <p>{errors.password}</p>
                 </div>
 

@@ -1,6 +1,6 @@
 import About from './components/about/about';
 import './App.css';
-import { Routes,Route, useNavigate } from 'react-router-dom';
+import { Routes,Route, useNavigate, useLocation } from 'react-router-dom';
 import NavBar from './components/navBar/navbar';
 import Cards from './components/cards/cards';
 import Detail from './components/detail/detail';
@@ -9,11 +9,11 @@ import { useSelector } from 'react-redux';
 import Form from './components/form/form';
 
 function App() {
-
+  const location = useLocation()
   const navigate = useNavigate()
   const [access,setAccess] = useState(false)
-  const username = "EzequielCaceres98@outlook.com"
-  const password = "1234qweR"
+  const username = "Ezequiel@gmail.com"
+  const password = "1password"
 
   function login (userData){
     if(userData.username === username && userData.password === password){
@@ -55,9 +55,8 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar onSearch={onSearch}/>
+      {location.pathname !== "/" && <NavBar onSearch={onSearch}/>}
       <Routes>
-        {/* <Route path="/" element={<About/>}/> */}
         <Route path="/" element={<Form login={login}/>}/>
         <Route path="/home" element={<Cards characters={characters} onClose={onClose}/>}/>
         <Route path="/favorites" element={<Cards characters={favoritos} onClose={onClose}/>}/>

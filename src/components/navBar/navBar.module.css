@@ -8,10 +8,8 @@
 }
 
 .divLinks{
-    margin-left: 30em;
-}
-.link{
-    margin-left: 7em;
+	display: flex;
+	gap: 3em;
 }
 .link {
 	box-shadow:inset 0px 1px 3px 0px #91b8b3;
