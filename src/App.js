@@ -7,6 +7,7 @@ import Detail from './components/detail/detail';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import Form from './components/form/form';
+import Favorites from './components/favorites/favorites';
 
 function App() {
   const location = useLocation()
@@ -34,7 +35,7 @@ function App() {
 
   const onSearch =(id)=>{
     const URL_BASE = "https://rickandmortyapi.com/api"
-    const KEY = "af37c84d53aa.bf2aa53c77851613dc66"
+    const KEY = "5aea9dcbbb6c.67c5d8f6389cea3b0aca"
 
     if(characters.find((character)=>character.id == id)) return alert("personaje repetido")
     fetch(`${URL_BASE}/character/${id}?key=${KEY}`)
@@ -47,11 +48,11 @@ function App() {
   const onClose = (id)=>{
     setCharacters(characters.filter(char=>char.id !== id))
   }
-  const favoritos = useSelector(state=>state.myFavorites)
- /*  useEffect(()=>{ //cuando se recargue la pagina...
+  /* const favoritos = useSelector(state=>state.myFavorites)
+  useEffect(()=>{ //cuando se recargue la pagina...
     //quiero que se pidan los usuarios para guardarlos en el estado global
     dispatch(GET_CHARACTERS)
-  },[]) */
+  },[])  */
 
   return (
     <div className="App">
@@ -59,7 +60,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Form login={login}/>}/>
         <Route path="/home" element={<Cards characters={characters} onClose={onClose}/>}/>
-        <Route path="/favorites" element={<Cards characters={favoritos} onClose={onClose}/>}/>
+        <Route path="/favorites" element={<Favorites/>}/>
         <Route path="/about" element={<About/>}/>
         <Route path="/detail/:id" element={<Detail/>}/>
       </Routes>

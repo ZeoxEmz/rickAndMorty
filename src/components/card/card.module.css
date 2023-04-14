@@ -32,10 +32,10 @@
 	text-transform: capitalize;
 	}
 .img{
-align-self: center;
-margin-top: 20px;
-border-radius: 15px;
-opacity: 0.9
+	align-self: center;
+	margin-top: 20px;
+	border-radius: 15px;
+	opacity: 0.9
 }
 .divBoton{
 	display: flex;
