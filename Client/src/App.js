@@ -5,40 +5,36 @@ import NavBar from './components/navBar/navbar';
 import Cards from './components/cards/cards';
 import Detail from './components/detail/detail';
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import Form from './components/form/form';
 import Favorites from './components/favorites/favorites';
+import axios from "axios"
 
 function App() {
   const location = useLocation()
   const navigate = useNavigate()
   const [access,setAccess] = useState(false)
-  const username = "Ezequiel@gmail.com"
-  const password = "1password"
+  const [characters,setCharacters] = useState([])
+  const URL_BASE = "http://localhost:3001"
 
-  function login (userData){
-    if(userData.username === username && userData.password === password){
-      setAccess(true);
-      navigate('/home');
-    }else{
-      alert("credenciales incorrectas")
-    }
+  function login ({username,password}){
+    axios.get(`${URL_BASE}/rickandmorty/login?password=${password}&email=${username}`)
+    .then(response=> {
+      if(response.data.access === true) {
+        setAccess(true)
+        navigate("/home")
+      }else alert("credenciales incorrectas")
+    })
   }
+
   useEffect(() => {
     !access && navigate('/');
- }, [access]);
-  
+ }, [access, navigate]);
 
-
-  const [characters,setCharacters] = useState([])
 
 
   const onSearch =(id)=>{
-    const URL_BASE = "https://rickandmortyapi.com/api"
-    const KEY = "5aea9dcbbb6c.67c5d8f6389cea3b0aca"
-
-    if(characters.find((character)=>character.id == id)) return alert("personaje repetido")
-    fetch(`${URL_BASE}/character/${id}?key=${KEY}`)
+    if(characters.find((character)=>character.id === Number(id))) return alert("personaje repetido")
+    fetch(`${URL_BASE}/onsearch/${id}`)
     .then(Response=>Response.json())
     .then((data)=>{
       if(data.name) setCharacters([...characters,data])
@@ -48,11 +44,6 @@ function App() {
   const onClose = (id)=>{
     setCharacters(characters.filter(char=>char.id !== id))
   }
-  /* const favoritos = useSelector(state=>state.myFavorites)
-  useEffect(()=>{ //cuando se recargue la pagina...
-    //quiero que se pidan los usuarios para guardarlos en el estado global
-    dispatch(GET_CHARACTERS)
-  },[])  */
 
   return (
     <div className="App">

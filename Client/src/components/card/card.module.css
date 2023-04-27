@@ -1,5 +1,6 @@
 .contenedor{
-    width: fit-content;
+    width: 80%;
+	height: 85%;
 	background-color: rgba(119, 51, 175, 0.534);
 	padding: 1em;
 	border-radius: 12px;
@@ -9,8 +10,8 @@
 }
 .titulo {
 	font-family: Arial Narrow;
-	font-size: 30px;
-	letter-spacing: 2px;
+	font-size: 26px;
+	letter-spacing: 1.5px;
 	word-spacing: 0px;
 	color: #000000;
 	font-weight: bold;
@@ -21,7 +22,7 @@
 	}
 .subTitulo {
 	font-family: Arial Narrow;
-	font-size: 23px;
+	font-size: 18px;
 	letter-spacing: 2px;
 	word-spacing: 0px;
 	color: #000000;
@@ -32,8 +33,9 @@
 	text-transform: capitalize;
 	}
 .img{
-	align-self: center;
-	margin-top: 20px;
+	height: 50%;
+	width: 100%;
+	margin-top: 18px;
 	border-radius: 15px;
 	opacity: 0.9
 }
@@ -50,9 +52,9 @@
 	cursor:pointer;
 	color:#ffffff;
 	font-family:Arial;
-	font-size:24px;
+	font-size:22px;
 	font-weight:bold;
-	padding:8px 14px;
+	padding:6px 12px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #2f6627;
 	width: fit-content;
@@ -70,8 +72,8 @@
 .boton{
 	box-shadow: 7px 7px 5px 0px #3dc21b;
 	padding: 4px 9px;
-	border-radius: 28px;
-	font-size: 24px;
+	border-radius: 24px;
+	font-size: 20px;
 	background-color:#3ac25e;
 	text-shadow:0px 1px 0px #2f6627;
 	cursor:pointer;

@@ -1,10 +1,13 @@
 .contenedorDiv{
-    display: flex;
+    /* display: flex;
     justify-content: space-around;
     width: 80%;
     margin: auto;
     gap: 10px;
     margin-bottom: 20px;
     padding: 3em;
-    border-radius: 15px;
+    border-radius: 15px; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
 }

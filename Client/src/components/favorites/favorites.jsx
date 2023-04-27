@@ -1,11 +1,13 @@
 import { useDispatch, useSelector } from "react-redux"
 import Card from "../card/card"
-import { filterCards, orderCards } from "../../redux/actions"
+import { GET_fAVORITES, filterCards, getFavorites, orderCards } from "../../redux/actions"
 import styles from "./favorites.module.css"
+import { useEffect } from "react"
 const Favorites =()=>{
 
     const dispatch = useDispatch()
     const favorites = useSelector(state=>state.myFavorites) //uso useSelector para importar del estado favorites
+
     const order =(event)=>{
         const order = event.target.value
         dispatch(orderCards(order))
@@ -14,6 +16,9 @@ const Favorites =()=>{
         const gender = event.target.value
         dispatch(filterCards(gender))
     }
+    useEffect(()=>{
+      dispatch(getFavorites())
+    },[dispatch])
     return(
         <div >
             <div>

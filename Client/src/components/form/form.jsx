@@ -38,8 +38,8 @@ export default function Form({login}){
                     <p>{errors.password}</p>
                 </div>
 
-            <button className={styles.boton}>Login</button>
-        </form>
+                <button className={styles.boton}>Login</button>
+            </form>
         </div>
     )
 }

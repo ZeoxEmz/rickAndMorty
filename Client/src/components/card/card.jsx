@@ -1,32 +1,39 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";/* 
-import Detail from "../detail/detail"; */
-import { addFavorites, deleteFavorites } from "../../redux/actions";
+import { Link } from "react-router-dom";
 import styles from "./card.module.css"
+import axios from "axios"
+import { getFavorites } from "../../redux/actions";
 
 const Card =({id,name,species,gender,image,onClose})=>{
-    const dispatch = useDispatch();
-    const myFavorites = useSelector(state=>state.myFavorites)
-    const [isFav,setIsFav] = useState(false)
+   const dispatch = useDispatch()
+   const myFavorites = useSelector(state=>state.myFavorites)
+   const [isFav,setIsFav] = useState(false)
+   
+   const addFavorites =(character)=>{
+      axios.post("http://localhost:3001/rickandmorty/fav",character)
+      .then(res=>console.log("ok"))
+   }
+
+   const deleteFavorites = async (id)=>{
+      await axios.delete(`http://localhost:3001/rickandmorty/fav/${id}`)
+      dispatch(getFavorites())
+   }
     const handleFavorite =()=>{
         if(isFav){
            setIsFav(false)
-           dispatch(deleteFavorites(id))
+           deleteFavorites(id)
         }
         else {
            setIsFav(true)
-           dispatch(addFavorites(
+           addFavorites(
               {
                  id,
                  name,
                  species,
                  gender,
                  image,
-                 onClose,
-                 addFavorites,
-                 deleteFavorites,
-              }))
+              })
         }
      }
      useEffect(() => {

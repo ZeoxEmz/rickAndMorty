@@ -1,0 +1,22 @@
+.contenedor{
+    display: flex;
+    justify-content: center;
+}
+.div{
+    background-color: rgba(119, 51, 175, 0.534);
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 1em;
+}
+img{
+    border-radius: 1em;
+}
+.subtitulo{
+    font-size: x-large;
+    font-weight: bold;
+    width: 90%;
+    background-color: rgba(10, 202, 250, 0.363);
+    border-radius: 0.5em;
+}

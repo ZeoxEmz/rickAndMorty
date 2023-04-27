@@ -1,4 +1,4 @@
-import { ADD_FAVORITES, CLEAN_DETAIL, DELETE_FAVORITES, FILTER, GET_CHARACTER_DETAIL, ORDER } from "./actions";
+import { CLEAN_DETAIL, FILTER, GET_CHARACTER_DETAIL, GET_fAVORITES, ORDER } from "./actions";
 
 const initialState = {
     myFavorites:[],
@@ -8,10 +8,8 @@ const initialState = {
 
 const rooReducer=(state=initialState,action)=>{
     switch (action.type) {
-        case ADD_FAVORITES:
-            return{...state,myFavorites:[...state.myFavorites,action.payload],allCharacters:[...state.allCharacters,action.payload]}
-        case DELETE_FAVORITES: 
-            return {...state,myFavorites:state.myFavorites.filter((char)=>char.id !== action.payload)}
+        case GET_fAVORITES:
+            return{...state,myFavorites:action.payload,allCharacters:action.payload}
         case GET_CHARACTER_DETAIL:
             return{...state,characterDetail:action.payload}
         case CLEAN_DETAIL:
