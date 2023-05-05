@@ -6,13 +6,6 @@ export const ORDER = "ORDER"
 export const GET_fAVORITES = "GET_fAVORITES"
 const URL_BASE = "http://localhost:3001"
 
-/* export const getCharacterDetail = (id) => {
-    return function (dispatch) {
-      fetch(`${URL_BASE}/detail/${id}`)
-      .then(response=>response.json())
-      .then((data) => dispatch({ type: GET_CHARACTER_DETAIL, payload: data }))
-    };
-}; */
 export const getCharacterDetail =(id)=>{
   return async function(dispatch){
     const response = await axios.get(`${URL_BASE}/detail/${id}`)
@@ -21,7 +14,7 @@ export const getCharacterDetail =(id)=>{
 }
 export const getFavorites = ()=>{
   return async function (dispatch){
-    const response = await axios.get(`${URL_BASE}/rickandmorty/fav`)
+    const response = await axios.get(`${URL_BASE}/fav`)
     dispatch({type:GET_fAVORITES,payload:response.data})
   }
 }

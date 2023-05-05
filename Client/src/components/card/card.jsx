@@ -11,12 +11,12 @@ const Card =({id,name,species,gender,image,onClose})=>{
    const [isFav,setIsFav] = useState(false)
    
    const addFavorites =(character)=>{
-      axios.post("http://localhost:3001/rickandmorty/fav",character)
+      axios.post("http://localhost:3001/fav",character)
       .then(res=>console.log("ok"))
    }
 
    const deleteFavorites = async (id)=>{
-      await axios.delete(`http://localhost:3001/rickandmorty/fav/${id}`)
+      await axios.delete(`http://localhost:3001/fav/${id}`)
       dispatch(getFavorites())
    }
     const handleFavorite =()=>{

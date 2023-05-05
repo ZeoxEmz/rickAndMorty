@@ -22,7 +22,6 @@ export default function Form({login}){
         event.preventDefault()
         login(userData)
     }
-
     
     return(
         <div className={styles.container}>

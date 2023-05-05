@@ -17,7 +17,7 @@ function App() {
   const URL_BASE = "http://localhost:3001"
 
   function login ({username,password}){
-    axios.get(`${URL_BASE}/rickandmorty/login?password=${password}&email=${username}`)
+    axios.get(`${URL_BASE}/login?password=${password}&email=${username}`)
     .then(response=> {
       if(response.data.access === true) {
         setAccess(true)
